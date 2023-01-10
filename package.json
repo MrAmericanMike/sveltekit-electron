@@ -7,11 +7,11 @@
 	"main": "src/electron.cjs",
 	"type": "module",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=dev pnpm run dev:all",
+		"dev": "pnpm run dev:all",
 		"dev:all": "concurrently -n=svelte,electron -c='#ff3e00',blue \"pnpm run dev:svelte\" \"pnpm run dev:electron\"",
 		"dev:svelte": "vite dev",
 		"dev:electron": "electron src/electron.cjs",
-		"build": "cross-env NODE_ENV=production pnpm run build:svelte && pnpm run build:electron",
+		"build": "pnpm run build:svelte && pnpm run build:electron",
 		"build:svelte": "vite build",
 		"build:electron": "electron-builder --config build.config.json"
 	},
@@ -25,8 +25,6 @@
 		"@sveltejs/adapter-static": "1.0.1",
 		"@sveltejs/kit": "1.0.10",
 		"concurrently": "^7.6.0",
-		"cross-env": "^7.0.3",
-		"dotenv": "^16.0.3",
 		"electron": "^22.0.0",
 		"electron-builder": "^23.6.0",
 		"electron-connect": "^0.6.3",
