@@ -1,12 +1,12 @@
-<script lang="ts">
+<script>
 	import Counter from '$lib/Counter.svelte';
 	import Logo from '$lib/Logo.svelte';
 	import { browser } from '$app/environment';
 
-	let desktop: string;
+	let desktop;
 
 	if (window.electron && browser) {
-		window.electron.receive('from-main', (data: any) => {
+		window.electron.receive('from-main', (data) => {
 			desktop = `Received Message "${data}" from Electron`;
 			console.log(desktop);
 		});

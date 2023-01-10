@@ -1,8 +1,8 @@
-<script lang="ts">
+<script>
 	import { getStore } from '$lib/utils/hmr-stores';
 
-	export let id: string;
-	export let agent: string;
+	export let id;
+	export let agent;
 
 	const count = getStore(id, 0);
 
