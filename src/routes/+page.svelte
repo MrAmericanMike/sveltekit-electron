@@ -1,18 +1,18 @@
 <script>
-	import Counter from '$lib/Counter.svelte';
-	import Logo from '$lib/Logo.svelte';
-	import { browser } from '$app/environment';
+	import Counter from "$lib/Counter.svelte";
+	import Logo from "$lib/Logo.svelte";
+	import { browser } from "$app/environment";
 
 	let desktop;
 
 	if (window.electron && browser) {
-		window.electron.receive('from-main', (data) => {
+		window.electron.receive("from-main", (data) => {
 			desktop = `Received Message "${data}" from Electron`;
 			console.log(desktop);
 		});
 	}
 
-	const agent = window.electron ? 'Electron' : 'Browser';
+	const agent = window.electron ? "Electron" : "Browser";
 </script>
 
 <main>
@@ -31,8 +31,7 @@
 
 <style>
 	:root {
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-			Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 	}
 
 	:global(body) {

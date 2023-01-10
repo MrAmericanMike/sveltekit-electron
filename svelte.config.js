@@ -1,13 +1,13 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from "@sveltejs/adapter-static";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
 		adapter: adapter({
-			fallback: 'index.html',
+			fallback: "index.html"
 		}),
-		prerender: { entries: [] },
-	},
+		prerender: { entries: [] }
+	}
 };
 
 export default config;

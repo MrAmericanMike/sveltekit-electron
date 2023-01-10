@@ -1,5 +1,5 @@
 <script>
-	import { getStore } from '$lib/utils/hmr-stores';
+	import { getStore } from "$lib/utils/hmr-stores";
 
 	export let id;
 	export let agent;
@@ -11,7 +11,7 @@
 	};
 
 	$: if (window.electron) {
-		window.electron.send('to-main', $count);
+		window.electron.send("to-main", $count);
 	}
 </script>
 

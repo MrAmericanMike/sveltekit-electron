@@ -1,6 +1,6 @@
 // Customized HMR-safe stores
 // Based off https://github.com/svitejs/svite/blob/ddec6b9/packages/playground/hmr/src/stores/hmr-stores.js
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
 /**
  * @type { Record<string, import('svelte/store').Writable<any>> }
@@ -27,3 +27,4 @@ if (import.meta.hot) {
 		import.meta.hot.data.stores = stores;
 	});
 }
+
