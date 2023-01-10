@@ -11,7 +11,7 @@ try {
 }
 
 const serveURL = serve({ directory: "." });
-const port = process.env.PORT || 5173;
+const port = process.env.PORT || 5050;
 const dev = !app.isPackaged;
 let mainWindow;
 
