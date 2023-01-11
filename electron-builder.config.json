@@ -1,0 +1,26 @@
+{
+	"appId": "com.mramericanmike.sveltekit-electron",
+	"productName": "Svelte Electron",
+	"directories": {
+		"output": "dist"
+	},
+	"files": [
+		"src/electron/main.cjs",
+		"src/electron/preload.cjs",
+		{
+			"from": "build",
+			"to": ""
+		}
+	],
+	"win": {
+		"target": "NSIS",
+		"icon": "static/favicon.ico"
+	},
+	"nsis": {
+		"allowToChangeInstallationDirectory": true,
+		"oneClick": false,
+		"createDesktopShortcut": false,
+		"deleteAppDataOnUninstall": true
+	}
+}
+

@@ -1,4 +1,4 @@
-const windowStateManager = require("electron-window-state");
+// const windowStateManager = require("electron-window-state");
 const contextMenu = require("electron-context-menu");
 const { app, BrowserWindow, ipcMain } = require("electron");
 const serve = require("electron-serve");
@@ -15,16 +15,18 @@ const port = process.env.PORT || 5050;
 const dev = !app.isPackaged;
 let mainWindow;
 
+console.log(serveURL);
+
 function createWindow() {
-	let windowState = windowStateManager({
-		defaultWidth: 800,
-		defaultHeight: 600
-	});
+	// let windowState = windowStateManager({
+	// 	defaultWidth: 800,
+	// 	defaultHeight: 600
+	// });
 
 	const mainWindow = new BrowserWindow({
 		backgroundColor: "whitesmoke",
-		titleBarStyle: "hidden",
-		autoHideMenuBar: true,
+		// titleBarStyle: "hidden",
+		// autoHideMenuBar: true,
 		trafficLightPosition: {
 			x: 17,
 			y: 32
@@ -36,16 +38,16 @@ function createWindow() {
 			contextIsolation: true,
 			nodeIntegration: true,
 			spellcheck: false,
-			devTools: dev,
+			devTools: true,
 			preload: path.join(__dirname, "preload.cjs")
 		},
-		x: windowState.x,
-		y: windowState.y,
-		width: windowState.width,
-		height: windowState.height
+		x: 0,
+		y: 0,
+		width: 800,
+		height: 600
 	});
 
-	windowState.manage(mainWindow);
+	// windowState.manage(mainWindow);
 
 	mainWindow.once("ready-to-show", () => {
 		mainWindow.show();
@@ -53,7 +55,7 @@ function createWindow() {
 	});
 
 	mainWindow.on("close", () => {
-		windowState.saveState(mainWindow);
+		// windowState.saveState(mainWindow);
 	});
 
 	return mainWindow;
@@ -85,8 +87,10 @@ function createMainWindow() {
 		mainWindow = null;
 	});
 
-	if (dev) loadVite(port);
-	else serveURL(mainWindow);
+	// if (dev) loadVite(port);
+	// else serveURL(mainWindow);
+
+	serveURL(mainWindow);
 }
 
 app.once("ready", createMainWindow);
